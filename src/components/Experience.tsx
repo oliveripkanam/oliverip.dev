@@ -9,6 +9,14 @@ const Experience = () => {
   const experiences = [
     {
       id: 1,
+      title: 'Science Tutor',
+      company: 'Oxbridge Tutoring',
+      date: 'Spring 2025 - Present',
+      description: 'Provide personalized tutoring in science subjects for students worldwide, adapting lessons to individual learning styles and incorporating students\' interests to make learning engaging. Work as part of a selective team of tutors from top UK universities, helping students develop subject knowledge, confidence, and problem-solving skills. Guide students through UCAS applications and university admissions processes, maintaining regular communication with parents to ensure effective learning outcomes.',
+      type: 'work' as ExperienceType,
+    },
+    {
+      id: 2,
       title: 'Software Engineer',
       company: 'Spark Layer',
       date: 'Summer 2024-25',
@@ -16,19 +24,11 @@ const Experience = () => {
       type: 'work' as ExperienceType,
     },
     {
-      id: 2,
+      id: 3,
       title: 'Summer Internship',
       company: 'I-Charge Solutions International Company Limited',
       date: 'Summer 2023',
       description: 'Received enriching on-site training, assisted with new software installation on electric vehicle chargers, and conducted diagnostic testing to resolve issues. Performed data entry and SQL queries to organize maintenance records, and created visually compelling designs for company brochures and flyers.',
-      type: 'work' as ExperienceType,
-    },
-    {
-      id: 3,
-      title: 'Part Time Employee',
-      company: "Hong Kong Kennedy Town McDonald's & Starbucks",
-      date: 'Summer 2022/21',
-      description: 'Interacted with customers as a cashier and fostered a stronger work ethic as a kitchen worker or barista. Developed important life skills including time management, multi-tasking in a fast-paced environment.',
       type: 'work' as ExperienceType,
     },
     {
@@ -97,17 +97,6 @@ const Experience = () => {
           </p>
         </motion.div>
 
-        <div className="flex justify-center mb-8">
-          <div className="inline-flex space-x-4 p-1 bg-gray-200 dark:bg-gray-700 rounded-lg">
-            <button
-              className="px-4 py-2 rounded-md bg-blue-600 text-white"
-              disabled
-            >
-              Timeline
-            </button>
-          </div>
-        </div>
-
         <div className="relative">
           {/* Timeline center line */}
           <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gray-300 dark:bg-gray-600"></div>
@@ -134,7 +123,7 @@ const Experience = () => {
                       <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-full">
                         {getIcon(exp.type)}
                       </div>
-                      <div>
+                      <div className={idx % 2 === 0 ? 'text-right' : ''}>
                         <h3 className="text-xl font-bold text-gray-800 dark:text-white">
                           {exp.title}
                         </h3>
@@ -143,10 +132,10 @@ const Experience = () => {
                         </p>
                       </div>
                     </div>
-                    <div className="mb-4 inline-block px-3 py-1 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-sm rounded-full">
+                    <div className={`mb-4 inline-block px-3 py-1 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-sm rounded-full ${idx % 2 === 0 ? 'float-right' : ''}`}>
                       {exp.date}
                     </div>
-                    <p className="text-gray-600 dark:text-gray-300">
+                    <p className="text-gray-600 dark:text-gray-300 clear-both">
                       {exp.description}
                     </p>
                   </div>

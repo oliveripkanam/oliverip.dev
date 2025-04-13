@@ -147,11 +147,6 @@ const Projects = () => {
                   height={200}
                   className="w-full h-full object-cover"
                 />
-                {project.featured && (
-                  <div className="absolute top-0 right-0 bg-blue-600 text-white text-xs font-bold px-2 py-1">
-                    Featured
-                  </div>
-                )}
               </div>
 
               <div className="p-6">
