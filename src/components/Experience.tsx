@@ -2,10 +2,26 @@
 
 import { motion } from 'framer-motion';
 import { FaBriefcase, FaGraduationCap, FaHandsHelping } from 'react-icons/fa';
+import { useEffect, useState } from 'react';
 
 type ExperienceType = 'work' | 'education' | 'volunteer';
 
 const Experience = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkIfMobile();
+    window.addEventListener('resize', checkIfMobile);
+    
+    return () => {
+      window.removeEventListener('resize', checkIfMobile);
+    };
+  }, []);
+
   const experiences = [
     {
       id: 1,
@@ -97,11 +113,9 @@ const Experience = () => {
           </p>
         </motion.div>
 
-        <div className="relative">
-          {/* Timeline center line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gray-300 dark:bg-gray-600"></div>
-
-          <div className="space-y-12">
+        {isMobile ? (
+          // Mobile layout (single column)
+          <div className="space-y-6">
             {experiences.map((exp, idx) => (
               <motion.div
                 key={exp.id}
@@ -109,44 +123,88 @@ const Experience = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className={`relative flex items-center ${
-                  idx % 2 === 0 ? 'flex-row-reverse' : ''
-                }`}
+                className="relative pl-8 border-l-2 border-gray-300 dark:border-gray-600"
               >
                 {/* Timeline dot */}
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-blue-600 z-10"></div>
-
-                {/* Content */}
-                <div className={`w-1/2 ${idx % 2 === 0 ? 'pr-12 text-right' : 'pl-12'}`}>
-                  <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md">
-                    <div className="flex items-center mb-4 gap-3">
-                      <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-full">
-                        {getIcon(exp.type)}
-                      </div>
-                      <div className={idx % 2 === 0 ? 'text-right' : ''}>
-                        <h3 className="text-xl font-bold text-gray-800 dark:text-white">
-                          {exp.title}
-                        </h3>
-                        <p className="text-blue-600 dark:text-blue-400">
-                          {exp.company}
-                        </p>
-                      </div>
+                <div className="absolute left-0 top-0 transform -translate-x-1/2 w-4 h-4 rounded-full bg-blue-600"></div>
+                
+                <div className="bg-white dark:bg-gray-900 p-5 rounded-lg shadow-md">
+                  <div className="flex items-center mb-3 gap-3">
+                    <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-full">
+                      {getIcon(exp.type)}
                     </div>
-                    <div className={`mb-4 inline-block px-3 py-1 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-sm rounded-full ${idx % 2 === 0 ? 'float-right' : ''}`}>
-                      {exp.date}
+                    <div>
+                      <h3 className="text-lg font-bold text-gray-800 dark:text-white">
+                        {exp.title}
+                      </h3>
+                      <p className="text-blue-600 dark:text-blue-400 text-sm">
+                        {exp.company}
+                      </p>
                     </div>
-                    <p className="text-gray-600 dark:text-gray-300 clear-both">
-                      {exp.description}
-                    </p>
                   </div>
+                  <div className="mb-3 inline-block px-3 py-1 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-xs rounded-full">
+                    {exp.date}
+                  </div>
+                  <p className="text-gray-600 dark:text-gray-300 text-sm">
+                    {exp.description}
+                  </p>
                 </div>
-
-                {/* Empty div for layout on alternate sides */}
-                <div className={`w-1/2 ${idx % 2 === 0 ? 'pl-12' : 'pr-12'}`}></div>
               </motion.div>
             ))}
           </div>
-        </div>
+        ) : (
+          // Desktop layout (alternating columns)
+          <div className="relative">
+            {/* Timeline center line */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gray-300 dark:bg-gray-600"></div>
+
+            <div className="space-y-12">
+              {experiences.map((exp, idx) => (
+                <motion.div
+                  key={exp.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  className={`relative flex items-center ${
+                    idx % 2 === 0 ? 'flex-row-reverse' : ''
+                  }`}
+                >
+                  {/* Timeline dot */}
+                  <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-blue-600 z-10"></div>
+
+                  {/* Content */}
+                  <div className={`w-1/2 ${idx % 2 === 0 ? 'pr-12 text-right' : 'pl-12'}`}>
+                    <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md">
+                      <div className="flex items-center mb-4 gap-3">
+                        <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-full">
+                          {getIcon(exp.type)}
+                        </div>
+                        <div className={idx % 2 === 0 ? 'text-right' : ''}>
+                          <h3 className="text-xl font-bold text-gray-800 dark:text-white">
+                            {exp.title}
+                          </h3>
+                          <p className="text-blue-600 dark:text-blue-400">
+                            {exp.company}
+                          </p>
+                        </div>
+                      </div>
+                      <div className={`mb-4 inline-block px-3 py-1 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-sm rounded-full ${idx % 2 === 0 ? 'float-right' : ''}`}>
+                        {exp.date}
+                      </div>
+                      <p className="text-gray-600 dark:text-gray-300 clear-both">
+                        {exp.description}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Empty div for layout on alternate sides */}
+                  <div className={`w-1/2 ${idx % 2 === 0 ? 'pl-12' : 'pr-12'}`}></div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
