@@ -78,10 +78,10 @@ const Contact = () => {
                     Email
                   </h4>
                   <a 
-                    href="mailto:kni22@bath.ac.uk" 
+                    href="mailto:ikn.oliver@gmail.com" 
                     className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
                   >
-                    kni22@bath.ac.uk
+                    ikn.oliver@gmail.com
                   </a>
                 </div>
               </div>
@@ -129,12 +129,12 @@ const Contact = () => {
                     LinkedIn
                   </h4>
                   <a 
-                    href="https://linkedin.com/in/oli0812" 
+                    href="https://www.linkedin.com/in/oliverip/" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
                   >
-                    linkedin.com/in/oli0812
+                    linkedin.com/in/oliverip
                   </a>
                 </div>
               </div>

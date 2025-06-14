@@ -67,10 +67,10 @@ const About = () => {
               Who am I?
             </h3>
             <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-              I&apos;m a driven second year computer science student at the University of Bath, seeking an enriching placement opportunity to gain firsthand experience in the dynamic tech industry. With a passion for programming and past experience in digital design, machine learning and software engineering, I&apos;m eager to collaborate with professionals on transformative projects.
+              Driven second year computer science student, seeking an enriching placement opportunity to gain firsthand experience in the dynamic tech industry. With a passion for programming and past experience in digital design, machine learning and software engineering, eager to collaborate with professionals on transformative projects, further developing technical skills and exploring potential career paths.
             </p>
             <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-              My goal is to further develop my technical skills and explore potential career paths while maximizing this formative year by actively contributing to impactful work and gaining well-rounded exposure to the field.
+              Aimed to maximize this formative year by actively contributing to impactful work and gaining well-rounded exposure to the field.
             </p>
 
             <div className="mb-6">
@@ -97,7 +97,7 @@ const About = () => {
                     International Baccalaureate | 2016-2022
                   </p>
                   <p className="text-sm text-gray-500 dark:text-gray-500">
-                    Final Grade: 42 marks out of 45
+                    Final Grade: 44 marks out of 45
                   </p>
                 </div>
               </div>

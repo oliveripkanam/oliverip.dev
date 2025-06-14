@@ -71,6 +71,16 @@ const Projects = () => {
     },
     {
       id: 7,
+      title: 'Lemme Cafe',
+      description: 'Website for university pop-up cafe with full-stack point-of-sale and kitchen management system using Next.js, TypeScript, React, and Supabase.',
+      image: '/images/lemme.png',
+      tags: ['javascript', 'web', 'typescript'],
+      github: 'https://github.com/oliveripkanam/lemme',
+      demo: null,
+      featured: true,
+    },
+    {
+      id: 8,
       title: 'Claw Machine',
       description: 'A basic yet fun-to-use claw machine with Arduino microcontrollers and 3D printed parts.',
       image: '/images/clawmachine.webp',

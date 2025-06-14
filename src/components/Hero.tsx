@@ -64,7 +64,7 @@ const Hero = () => {
               <FaGithub size={24} />
             </a>
             <a 
-              href="https://linkedin.com/in/oli0812" 
+              href="https://www.linkedin.com/in/oliverip/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
@@ -73,7 +73,7 @@ const Hero = () => {
               <FaLinkedin size={24} />
             </a>
             <a 
-              href="mailto:kni22@bath.ac.uk" 
+              href="mailto:ikn.oliver@gmail.com" 
               className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
               aria-label="Email Contact"
             >
