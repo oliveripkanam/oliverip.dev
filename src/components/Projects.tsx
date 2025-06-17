@@ -91,18 +91,12 @@ const Projects = () => {
     },
   ];
 
-  const filteredProjects = filter === 'all' 
-    ? projects 
-    : projects.filter(project => project.tags.includes(filter));
-
-  const categories = [
-    { id: 'all', name: 'All' },
-    { id: 'web', name: 'Web' },
-    { id: 'mobile', name: 'Mobile' },
-    { id: 'javascript', name: 'JavaScript' },
-    { id: 'python', name: 'Python' },
-    { id: 'hardware', name: 'Hardware' },
-  ];
+  // Featured projects to display
+  const featuredProjects = [
+    projects.find(p => p.title === 'Lemme Cafe'),
+    projects.find(p => p.title === 'WiFi Fixer'),
+    projects.find(p => p.title === 'Modern Solitaire'),
+  ].filter((project): project is NonNullable<typeof project> => project !== undefined);
 
   return (
     <section id="projects" className="py-20 bg-white dark:bg-gray-900">
@@ -114,99 +108,68 @@ const Projects = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">
             My Projects
           </h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            A selection of my academic and personal projects.
+          <div className="w-24 h-1.5 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto rounded-full"></div>
+          <p className="mt-6 text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            A selection of my most impactful academic and personal projects.
           </p>
         </motion.div>
 
-        <div className="flex flex-wrap justify-center mb-10 gap-2">
-          {categories.map((category) => (
-            <button
-              key={category.id}
-              onClick={() => setFilter(category.id)}
-              className={`px-4 py-2 rounded-full text-sm transition-colors duration-300 ${
-                filter === category.id
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600'
-              }`}
-            >
-              {category.name}
-            </button>
-          ))}
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, idx) => (
-            <motion.div
+        <div className="max-w-4xl mx-auto space-y-6">
+          {featuredProjects.map((project, idx) => (
+            <motion.a
               key={project.id}
+              href={project.github || '#'}
+              target="_blank"
+              rel="noopener noreferrer"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="bg-gray-50 dark:bg-gray-800 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
+              className="block bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 cursor-pointer hover-lift border border-gray-700 hover:border-blue-500"
             >
-              <div className="h-48 bg-gray-200 dark:bg-gray-700 relative">
-                <Image 
-                  src={project.image} 
-                  alt={project.title}
-                  width={400}
-                  height={200}
-                  className="w-full h-full object-cover"
-                />
-              </div>
+              <div className="md:flex">
+                <div className="md:w-1/3">
+                  <div className="h-64 md:h-full bg-gray-700 relative">
+                    <Image 
+                      src={project.image} 
+                      alt={project.title}
+                      width={400}
+                      height={300}
+                      className="w-full h-full object-contain p-4"
+                    />
+                  </div>
+                </div>
 
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">
-                  {project.title}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  {project.description}
-                </p>
-                
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag) => (
-                    <span 
-                      key={tag} 
-                      className="text-xs bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2 py-1 rounded"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                
-                <div className="flex justify-between">
-                  {project.github && (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 flex items-center"
-                      aria-label={`GitHub repository for ${project.title}`}
-                    >
-                      <FaGithub className="mr-2" />
-                      <span>Code</span>
-                    </a>
-                  )}
+                <div className="md:w-2/3 p-6">
+                  <h3 className="text-2xl font-bold text-white mb-3">
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-300 mb-6 text-lg leading-relaxed">
+                    {project.description}
+                  </p>
                   
-                  {project.demo && (
-                    <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 flex items-center"
-                      aria-label={`Live demo for ${project.title}`}
-                    >
-                      <FaExternalLinkAlt className="mr-2" />
-                      <span>Demo</span>
-                    </a>
-                  )}
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.tags.map((tag) => (
+                      <span 
+                        key={tag} 
+                        className="text-sm bg-blue-600 text-white px-3 py-1 rounded-full"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  
+                  <div className="flex items-center text-blue-400 hover:text-blue-300 transition-colors">
+                    <FaGithub className="mr-2" size={18} />
+                    <span className="font-medium">View on GitHub</span>
+                    <FaExternalLinkAlt className="ml-2" size={14} />
+                  </div>
                 </div>
               </div>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
         

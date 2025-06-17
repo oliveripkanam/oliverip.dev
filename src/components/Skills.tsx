@@ -1,29 +1,54 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { FaCode, FaLaptopCode, FaServer, FaDatabase, FaTools } from 'react-icons/fa';
+import { FaCode, FaLaptopCode, FaServer, FaTools, FaPaintBrush, FaBrain } from 'react-icons/fa';
+import { SiJavascript, SiTypescript, SiPython, SiReact, SiNextdotjs, SiNodedotjs, SiTailwindcss, SiGo, SiPhp, SiBlender, SiDavinciresolve } from 'react-icons/si';
 
 const Skills = () => {
   const skillCategories = [
     {
+      title: 'Programming Languages',
+      icon: <FaCode className="text-blue-400 w-6 h-6" />,
+      skills: [
+        { name: 'Python', icon: <SiPython className="text-yellow-400" />, years: 4 },
+        { name: 'Java', icon: <FaCode className="text-red-500" />, years: 4 },
+        { name: 'C', icon: <FaCode className="text-gray-400" />, years: 4 },
+        { name: 'JavaScript', icon: <SiJavascript className="text-yellow-500" />, years: 2 },
+        { name: 'TypeScript', icon: <SiTypescript className="text-blue-500" />, years: 2 },
+        { name: 'Go', icon: <SiGo className="text-cyan-400" />, years: 2 },
+      ]
+    },
+    {
       title: 'Web Development',
-      icon: <FaLaptopCode className="text-blue-600 w-6 h-6" />,
-      skills: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'Tailwind']
+      icon: <FaLaptopCode className="text-green-400 w-6 h-6" />,
+      skills: [
+        { name: 'React', icon: <SiReact className="text-blue-400" />, years: 2 },
+        { name: 'Next.js', icon: <SiNextdotjs className="text-white" />, years: 2 },
+        { name: 'Node.js', icon: <SiNodedotjs className="text-green-500" />, years: 2 },
+        { name: 'Tailwind CSS', icon: <SiTailwindcss className="text-teal-400" />, years: 2 },
+        { name: 'Vue.js', icon: <FaLaptopCode className="text-green-500" />, years: 2 },
+        { name: 'PHP', icon: <SiPhp className="text-purple-400" />, years: 1 },
+      ]
     },
     {
-      title: 'Backend & Systems',
-      icon: <FaServer className="text-blue-600 w-6 h-6" />,
-      skills: ['Java', 'PHP', 'C#', 'Go']
+      title: 'Design & Creative',
+      icon: <FaPaintBrush className="text-purple-400 w-6 h-6" />,
+      skills: [
+        { name: 'Blender', icon: <SiBlender className="text-orange-500" />, years: 9 },
+        { name: 'DaVinci Resolve', icon: <SiDavinciresolve className="text-red-400" />, years: 9 },
+        { name: '3D Printing', icon: <FaTools className="text-gray-400" />, years: 9 },
+        { name: 'UI/UX Design', icon: <FaPaintBrush className="text-pink-400" />, years: 4 },
+      ]
     },
     {
-      title: 'Core & Data Engineering',
-      icon: <FaCode className="text-blue-600 w-6 h-6" />,
-      skills: ['C', 'C++', 'Python', 'SQL']
-    },
-    {
-      title: 'Tools & Frameworks',
-      icon: <FaTools className="text-blue-600 w-6 h-6" />,
-      skills: ['React', 'Node.js', 'Vue.js', 'NestJS']
+      title: 'AI & Data Science',
+      icon: <FaBrain className="text-pink-400 w-6 h-6" />,
+      skills: [
+        { name: 'Machine Learning', icon: <FaBrain className="text-purple-500" />, years: 4 },
+        { name: 'Neural Networks', icon: <FaBrain className="text-blue-500" />, years: 4 },
+        { name: 'Computer Vision', icon: <FaBrain className="text-green-500" />, years: 4 },
+        { name: 'Data Analysis', icon: <FaBrain className="text-yellow-500" />, years: 4 },
+      ]
     }
   ];
 
@@ -65,15 +90,27 @@ const Skills = () => {
                 </h3>
               </div>
 
-              <div className="grid grid-cols-2 gap-2 md:grid-cols-3">
+              <div className="grid grid-cols-1 gap-4">
                 {category.skills.map((skill) => (
                   <div 
-                    key={skill}
-                    className="flex items-center"
+                    key={skill.name}
+                    className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg hover-lift"
                   >
-                    <div className="w-2 h-2 bg-blue-600 rounded-full mr-2"></div>
-                    <span className="text-gray-700 dark:text-gray-300">
-                      {skill}
+                    <div className="flex items-center">
+                      <div className="mr-3 text-xl">
+                        {skill.icon}
+                      </div>
+                      <span className="text-gray-800 dark:text-white font-medium">
+                        {skill.name}
+                      </span>
+                    </div>
+                    <span className={`text-xs px-2 py-1 rounded-full font-semibold ${
+                      skill.years >= 9 ? 'bg-gradient-to-r from-yellow-400 to-orange-500 text-black' :
+                      skill.years >= 4 ? 'bg-green-500 text-white' :
+                      skill.years >= 2 ? 'bg-blue-500 text-white' :
+                      'bg-purple-500 text-white'
+                    }`}>
+                      {skill.years} {skill.years === 1 ? 'year' : 'years'}
                     </span>
                   </div>
                 ))}

@@ -12,8 +12,7 @@ const Hero = () => {
     >
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-blue-100 dark:bg-blue-900/20 blur-3xl opacity-70"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 rounded-full bg-indigo-100 dark:bg-indigo-900/20 blur-3xl opacity-70"></div>
+        <div className="absolute -top-60 -right-60 w-96 h-96 rounded-full bg-blue-900/10 blur-3xl opacity-50"></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 z-10">
@@ -54,31 +53,37 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="flex justify-center space-x-4 mb-8"
           >
-            <a 
+            <motion.a 
               href="https://github.com/oliveripkanam" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
+              className="p-3 rounded-full bg-gray-800 text-gray-300 hover:bg-blue-600 hover:text-white transition-all duration-300 hover-lift"
               aria-label="GitHub Profile"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <FaGithub size={24} />
-            </a>
-            <a 
+              <FaGithub size={20} />
+            </motion.a>
+            <motion.a 
               href="https://www.linkedin.com/in/oliverip/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
+              className="p-3 rounded-full bg-gray-800 text-gray-300 hover:bg-blue-600 hover:text-white transition-all duration-300 hover-lift"
               aria-label="LinkedIn Profile"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <FaLinkedin size={24} />
-            </a>
-            <a 
+              <FaLinkedin size={20} />
+            </motion.a>
+            <motion.a 
               href="mailto:ikn.oliver@gmail.com" 
-              className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
+              className="p-3 rounded-full bg-gray-800 text-gray-300 hover:bg-blue-600 hover:text-white transition-all duration-300 hover-lift"
               aria-label="Email Contact"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <FaEnvelope size={24} />
-            </a>
+              <FaEnvelope size={20} />
+            </motion.a>
           </motion.div>
 
           <motion.div
@@ -87,18 +92,22 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="flex flex-wrap justify-center gap-4"
           >
-            <Link 
-              href="#projects"
-              className="px-6 py-3 rounded-md bg-blue-600 text-white font-medium hover:bg-blue-700 transition-colors duration-300"
-            >
-              View Projects
-            </Link>
-            <Link 
-              href="#contact"
-              className="px-6 py-3 rounded-md bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white font-medium hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-300"
-            >
-              Contact Me
-            </Link>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Link 
+                href="#projects"
+                className="px-8 py-4 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+              >
+                View Projects
+              </Link>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Link 
+                href="#contact"
+                className="px-8 py-4 rounded-lg bg-gray-700 text-white font-semibold hover:bg-gray-600 transition-all duration-300 shadow-lg hover:shadow-xl"
+              >
+                Contact Me
+              </Link>
+            </motion.div>
           </motion.div>
         </div>
       </div>
