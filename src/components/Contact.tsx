@@ -129,12 +129,12 @@ const Contact = () => {
                     LinkedIn
                   </h4>
                   <a 
-                    href="https://www.linkedin.com/in/oliverip/" 
+                    href="https://www.linkedin.com/in/oli0812/" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
                   >
-                    linkedin.com/in/oliverip
+                    linkedin.com/in/oli0812
                   </a>
                 </div>
               </div>
