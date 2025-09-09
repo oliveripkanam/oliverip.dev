@@ -10,6 +10,16 @@ const Projects = () => {
   
   const projects = [
     {
+      id: 0,
+      title: 'MSTR Advisor',
+      description: 'Automated MSTR advisor with daily data, live preview, and backtests.',
+      image: '/images/demoscreenshot.png',
+      tags: ['typescript', 'python', 'finance'],
+      github: 'https://github.com/oliveripkanam/mstr-advisor',
+      demo: 'https://oliveripkanam.github.io/mstr-advisor/',
+      featured: true,
+    },
+    {
       id: 1,
       title: 'Modern Solitaire',
       description: 'A clean, modern web-based solitaire game. Made in 2 days.',
@@ -93,6 +103,7 @@ const Projects = () => {
 
   // Featured projects to display
   const featuredProjects = [
+    projects.find(p => p.title === 'MSTR Advisor'),
     projects.find(p => p.title === 'Lemme Cafe'),
     projects.find(p => p.title === 'WiFi Fixer'),
     projects.find(p => p.title === 'Modern Solitaire'),
