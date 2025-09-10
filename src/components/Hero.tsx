@@ -43,7 +43,7 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
-              Computer Science Student at University of Bath
+              Final Year Computer Scientist at University of Bath
             </p>
           </motion.div>
 

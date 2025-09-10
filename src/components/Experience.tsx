@@ -24,6 +24,14 @@ const Experience = () => {
 
   const experiences = [
     {
+      id: 0,
+      title: 'Chief Software Officer',
+      company: 'K30-Creator',
+      date: 'Winter 2024 - Present',
+      description: 'In charge of software development, coding, and AI integration for this interactive learning platform.',
+      type: 'work' as ExperienceType,
+    },
+    {
       id: 1,
       title: 'Science Tutor',
       company: 'Oxbridge Tutoring',

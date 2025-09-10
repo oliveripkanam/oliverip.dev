@@ -67,10 +67,7 @@ const About = () => {
               Who am I?
             </h3>
             <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-              Driven second year computer science student, seeking an enriching placement opportunity to gain firsthand experience in the dynamic tech industry. With a passion for programming and past experience in digital design, machine learning and software engineering, eager to collaborate with professionals on transformative projects, further developing technical skills and exploring potential career paths.
-            </p>
-            <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-              Aimed to maximize this formative year by actively contributing to impactful work and gaining well-rounded exposure to the field.
+              Final-year Computer Science student at the University of Bath with hands-on experience across full‑stack web, AI/ML, and systems development. I enjoy building reliable products end‑to‑end—from data pipelines to accessible UIs—and I care about clarity, testing, and impact. A small part of my work explores markets and investing through data (e.g., MSTR Advisor), which I plan to deepen in postgraduate study in finance/data science.
             </p>
 
             <div className="mb-6">
@@ -86,7 +83,7 @@ const About = () => {
                     BSc Computer Science | 2022-2026
                   </p>
                   <p className="text-sm text-gray-500 dark:text-gray-500">
-                    1st Year Average Grade: 68.5% | Predicted classification: 2:1
+                    Predicted classification: 2:1
                   </p>
                 </div>
                 <div className="border-l-2 border-blue-600 pl-4">
