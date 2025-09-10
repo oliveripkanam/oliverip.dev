@@ -1,12 +1,16 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showAnnouncement, setShowAnnouncement] = useState(true);
+
+  useEffect(() => {
+    // Do not increase navbar height; announcement is absolutely positioned below it
+  }, []);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -60,9 +64,9 @@ const Navbar = () => {
         </div>
 
         {showAnnouncement && (
-          <div className="pb-3">
+          <div className="pointer-events-none">
             <div className="flex justify-center">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 text-blue-900 dark:bg-blue-900/30 dark:text-blue-200 border border-blue-300 dark:border-blue-700 shadow-sm">
+              <div className="pointer-events-auto absolute left-1/2 -translate-x-1/2 top-16 md:top-16 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 text-blue-900 dark:bg-blue-900/30 dark:text-blue-200 border border-blue-300 dark:border-blue-700 shadow-sm">
                 <span>
                   What&apos;s new: Check out my new{' '}
                   <a
