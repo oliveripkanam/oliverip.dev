@@ -3,8 +3,10 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import { useState } from 'react';
 
 const Hero = () => {
+  const [showAnnouncement, setShowAnnouncement] = useState(true);
   return (
     <section 
       id="home" 
@@ -17,6 +19,39 @@ const Hero = () => {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 z-10">
         <div className="text-center">
+          {showAnnouncement && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+              className="mb-4 flex justify-center"
+            >
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 text-blue-900 dark:bg-blue-900/30 dark:text-blue-200 border border-blue-300 dark:border-blue-700 shadow-sm">
+                <span>
+                  What&apos;s new: Check out my new{' '}
+                  <a
+                    href="https://oliveripkanam.github.io/mstr-advisor/?combined=0"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline font-semibold text-blue-700 dark:text-blue-300 hover:text-blue-800"
+                  >
+                    stock advisor project
+                  </a>
+                  !
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setShowAnnouncement(false)}
+                  className="ml-1 rounded-full p-1 hover:bg-blue-200/60 dark:hover:bg-blue-800/40 transition-colors"
+                  aria-label="Dismiss announcement"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4">
+                    <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                  </svg>
+                </button>
+              </div>
+            </motion.div>
+          )}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
