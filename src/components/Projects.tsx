@@ -15,18 +15,18 @@ const Projects = () => {
       description: 'Automated MSTR advisor with daily data, live preview, and backtests.',
       image: '/images/demoscreenshot.png',
       tags: ['typescript', 'python', 'finance'],
-      github: 'https://github.com/oliveripkanam/mstr-advisor',
+      github: 'https://oliveripkanam.github.io/mstr-advisor/',
       demo: 'https://oliveripkanam.github.io/mstr-advisor/',
       featured: true,
     },
     {
       id: 1,
-      title: 'Modern Solitaire',
-      description: 'A clean, modern web-based solitaire game. Made in 2 days.',
-      image: '/images/solitare.png',
-      tags: ['javascript', 'game', 'web'],
-      github: 'https://github.com/oliveripkanam/modern-solitare',
-      demo: null,
+      title: 'Wall Stonks',
+      description: 'Monitor macro and public sentiment to forecast S&P 500/Dow.',
+      image: '/images/wallstonksicon.png',
+      tags: ['typescript', 'finance', 'web'],
+      github: 'https://oliveripkanam.github.io/wallstonks/',
+      demo: 'https://oliveripkanam.github.io/wallstonks/',
       featured: true,
     },
     {
@@ -106,7 +106,7 @@ const Projects = () => {
     projects.find(p => p.title === 'MSTR Advisor'),
     projects.find(p => p.title === 'Lemme Cafe'),
     projects.find(p => p.title === 'WiFi Fixer'),
-    projects.find(p => p.title === 'Modern Solitaire'),
+    projects.find(p => p.title === 'Wall Stonks'),
   ].filter((project): project is NonNullable<typeof project> => project !== undefined);
 
   return (
