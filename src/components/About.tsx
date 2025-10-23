@@ -94,7 +94,7 @@ const About = () => {
                     International Baccalaureate | 2016-2022
                   </p>
                   <p className="text-sm text-gray-500 dark:text-gray-500">
-                    Final Grade: 44 marks out of 45
+                    Final Grade: 42 marks out of 45
                   </p>
                 </div>
               </div>
